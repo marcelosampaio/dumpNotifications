@@ -16,13 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self dumpNotifications];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Notifications Helper
+- (void)dumpNotifications {
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserverForName:nil
+                              object:nil
+                               queue:nil
+                          usingBlock:^(NSNotification *notification){
+                              // Explore notification
+                              NSLog(@"Notification found with:"
+                                    "\r\n     name:     %@"
+                                    "\r\n     object:   %@"
+                                    "\r\n     userInfo: %@",
+                                    [notification name],
+                                    [notification object],
+                                    [notification userInfo]);
+                          }];
 }
 
 
