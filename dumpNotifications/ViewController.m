@@ -14,11 +14,14 @@
 
 @implementation ViewController
 
+    
+#pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self dumpNotifications];
 }
 
+    
 
 #pragma mark - Notifications Helper
 - (void)dumpNotifications {
